@@ -1,13 +1,67 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="page">
+  <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
     </block>
+  </swiper>
+
+
+  <view class="page__bd">
+    <view class="weui-grids">
+      <block wx:for="{{grids}}">
+        <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="{{item.img}}" />
+          <view class="weui-grid__label">{{item.title}}</view>
+        </navigator>
+      </block>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-flex">
+      <view>
+        <image class="message" src='/source/images/iocn_07.png' />
+      </view>
+      <view class="weui-flex__item mes_title">
+        <swiper class="mes_swiper" autoplay="true" interval="5000" duration="500" vertical="true">
+          <block wx:for="{{mesinfo}}">
+            <swiper-item>
+              <text>{{item.title}}</text>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view>
+        <image class="message" src='/source/images/iocn_08.png' />
+      </view>
+    </view>
   </view>
+
+
+  <view class="box_two">
+    <view class='month_box'>
+      <text>本月业绩</text>
+      <view>0</view>
+    </view>
+    <view class="all_box">
+      <navigator src="wealth/Profit_income.html">
+        <view class="all_box_one">
+          <text>总总 利 润（元) </text>
+          <text id="zong_jy_profit">0</text>
+        </view>
+      </navigator>
+      <navigator src="wealth/rebate_income.html">
+        <view class="all_box_two">
+          <text>可用返利（元）</text>
+          <text id="ky_xj_profit">0</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+
+
 </view>

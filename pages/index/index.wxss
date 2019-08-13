@@ -19,3 +19,103 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.rouView image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.slide-image{
+  width:100%
+}
+.weui-grids image{
+  width: 90rpx;
+  height: 90rpx;
+
+}
+.message{
+  width: 60rpx;
+  height: 100rpx;
+  margin: 0px 10px
+}
+.mes_swiper {
+    height: 80rpx;
+}
+.mes_swiper text{
+   height: 80rpx;
+}
+.mes_title{
+   margin: 20rpx 10rpx;
+}
+
+
+.box_two{
+  margin: 10px;
+}
+
+.box_two .month_box text:nth-child(1) {
+    font-size: 24px;
+    color: #f00;
+}
+.month_box view{
+  margin-left: 15px;
+}
+
+.box_two .month_box {
+    height: 100px;
+    line-height: 50px;
+    /* background: url('../../images/month.png'); */
+    background-repeat: no-repeat;
+    background-position: 95% -10px;
+    background-size: 30%;
+}
+
+@media(max-width:350px) {
+    .box_two .month_boxe {
+        background-position: right -5px;
+        background-size: 35%;
+    }
+}
+
+.box_two .month_box text {
+    margin-left: 15px;
+}
+
+.box_two .month_box text:nth-child(1) {
+    font-size: 24px;
+    color: #f00;
+}
+
+.box_two .all_box {
+    margin: 15px 10px 30px;
+    overflow: hidden;
+}
+
+.box_two .all_box .all_box_one {
+    color: #fff;
+    padding: 10px 15px;
+    background: #ff6a69;
+    border-radius: 10px;
+    float: left;
+    width: 35%;
+}
+
+.box_two .all_box .all_box_two {
+    color: #fff;
+    padding: 10px 15px;
+    background: #f7bd58;
+    border-radius: 10px;
+    float: right;
+    width: 35%;
+}
+
+.box_two .all_box .all_box_one text,
+.box_two .all_box .all_box_two text {
+    font-size: 14px;
+}
+
+.box_two .all_box .all_box_one text:nth-child(1),
+.box_two .all_box .all_box_two text:nth-child(1) {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
