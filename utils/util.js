@@ -14,6 +14,21 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const onHttpPost = function(url,data,callBack){
+  wx.request({
+    url: url, //仅为示例，并非真实的接口地址
+    data: data,
+    method: 'POST',
+    complete(res) {
+
+      callBack(res.data);
+      
+    }
+  })
+}
+
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  onHttpPost: onHttpPost
 }
