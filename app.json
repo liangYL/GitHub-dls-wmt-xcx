@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/shops/shop/shop",
-    "pages/shops/goods/goods"
+    "pages/shops/goods/goods",
+    "pages/mys/my/my",
+    "pages/logins/login/login",
+    "pages/logins/authorize/authorize"
   ],
   "window": {
     "backgroundTextStyle": "light",

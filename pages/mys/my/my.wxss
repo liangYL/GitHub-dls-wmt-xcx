@@ -1,0 +1,14 @@
+/* pages/my/my/my.wxss */
+.weui-cell{
+  padding: 5px 15px 5px 5px;
+
+}
+
+#userinfo{
+  width: 185rpx;
+  height:185rpx;
+  border-radius:50%;
+  display: flex;
+  overflow:hidden;
+  text-align: center;
+}

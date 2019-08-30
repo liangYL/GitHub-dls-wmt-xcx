@@ -12,7 +12,7 @@ Page({
       { img: '/source/images/iocn_03.png', src: '', title: '财富' },
       { img: '/source/images/iocn_04.png', src: '', title: '人员' },
       { img: '/source/images/iocn_05.png', src: '', title: '素材' },
-      { img: '/source/images/iocn_06.png', src: '', title: '我的' }],
+      { img: '/source/images/iocn_06.png', src: '../mys/my/my', title: '我的' }],
     imgUrls: [
       'https://www.baidu.com/img/bd_logo1.png',
       'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
@@ -23,21 +23,26 @@ Page({
   },
   onLoad: function () {
 
+    this.onInitMessageData();
+
+  }
+  ,
+  onInitMessageData:function (){
     var _this = this;
     var jsonMessage =
     {
       apid: "T2BP42-T48PR0",
       param: {
         "custid": 'JXS27354',
-        "fk_user_id":'oyrv54v1r74Dtx9l5mu8gXmtrT6Y'
+        "fk_user_id": 'oyrv54v1r74Dtx9l5mu8gXmtrT6Y'
       }
     }
-    util.onHttpPost(config.baseUrl, jsonMessage ,function(res){
+    util.onHttpPost(config.baseUrl, jsonMessage, function (res) {
       if (res.errorCode == 0) {
         _this.setData({
           mesinfo: JSON.parse(res.replyContent).list
         })
-      }else{
+      } else {
         wx.showModal({
           title: '失败提醒',
           content: res.replyContent,
@@ -53,6 +58,7 @@ Page({
         });
       }
     })
-
   }
+
+
 })

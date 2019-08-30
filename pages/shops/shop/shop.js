@@ -37,8 +37,14 @@ Page({
     }
     util.onHttpPost(config.baseUrl, jsonMessage, function (res) {
       if (res.errorCode == 0) {
+        var listdata = JSON.parse(res.replyContent).list;
+        for (var i = 0; i < listdata.length; i++) {
+          if (!!listdata[i].goods_cover){
+            listdata[i].goods_cover = JSON.parse(listdata[i].goods_cover);
+          }
+        }
         _this.setData({
-          dataArray: JSON.parse(res.replyContent).list
+          dataArray: listdata
         })
       } else {
         wx.showModal({
