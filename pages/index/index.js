@@ -8,10 +8,10 @@ Page({
   data: {
     grids: [
       { img: '/source/images/iocn_01.png',src:'../shops/shop/shop', title: '商城' },
-      { img: '/source/images/iocn_02.png', src: '', title: '订单' },
-      { img: '/source/images/iocn_03.png', src: '', title: '财富' },
+      { img: '/source/images/iocn_02.png', src: '../orders/menu/menu', title: '订单' },
+      { img: '/source/images/iocn_03.png', src: '../wealths/menu/menu', title: '财富' },
       { img: '/source/images/iocn_04.png', src: '', title: '人员' },
-      { img: '/source/images/iocn_05.png', src: '', title: '素材' },
+      { img: '/source/images/iocn_05.png', src: '../material/material', title: '素材' },
       { img: '/source/images/iocn_06.png', src: '../mys/my/my', title: '我的' }],
     imgUrls: [
       'https://www.baidu.com/img/bd_logo1.png',

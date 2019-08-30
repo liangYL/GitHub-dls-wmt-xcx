@@ -1,0 +1,5 @@
+/* pages/orders/menu/menu.wxss */
+.weui-grid image{
+  width: 80rpx;
+  height: 80rpx;
+}

@@ -6,7 +6,11 @@
     "pages/shops/goods/goods",
     "pages/mys/my/my",
     "pages/logins/login/login",
-    "pages/logins/authorize/authorize"
+    "pages/logins/authorize/authorize",
+    "pages/orders/menu/menu",
+    "pages/orders/myOrder/myOrder",
+    "pages/wealths/profitIncome/profitIncome",
+    "pages/material/material"
   ],
   "window": {
     "backgroundTextStyle": "light",

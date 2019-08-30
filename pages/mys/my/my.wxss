@@ -12,3 +12,11 @@
   overflow:hidden;
   text-align: center;
 }
+
+.logo{
+    display: flex;
+    flex-direction:column;
+}
+.logo open-data{
+    margin: auto;
+}

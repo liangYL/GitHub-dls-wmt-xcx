@@ -17,8 +17,12 @@ Page({
    */
   onLoad: function (options) {
 
-    var _this = this;
+    this.initData();
 
+  },
+
+  initData: function () {
+    var _this = this;
     var jsonMessage = {
       apid: "L0PJ44-2XB00N",
       param: {
@@ -36,10 +40,12 @@ Page({
 
     }
     util.onHttpPost(config.baseUrl, jsonMessage, function (res) {
+      wx.stopPullDownRefresh();
+
       if (res.errorCode == 0) {
         var listdata = JSON.parse(res.replyContent).list;
         for (var i = 0; i < listdata.length; i++) {
-          if (!!listdata[i].goods_cover){
+          if (!!listdata[i].goods_cover) {
             listdata[i].goods_cover = JSON.parse(listdata[i].goods_cover);
           }
         }
@@ -63,9 +69,7 @@ Page({
       }
     })
 
-
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -98,14 +102,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.initData();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('上拉');
   },
 
   /**
