@@ -6,10 +6,10 @@ Page({
    */
   data: {
     grids: [
-      { img: '/source/images/icon3.png', src: '../profitIncome/profitIncome', title: '利润收入' },
-      { img: '/source/images/icon4.png', src: '../profitIncome/profitIncome', title: '利润支出' },
-      { img: '/source/images/icon5.png', src: '../profitIncome/profitIncome', title: '返利收入' },
-      { img: '/source/images/icon6.png', src: '../profitIncome/profitIncome', title: '返利支出' }
+      { img: '/static/images/icon3.png', src: '../profitIncome/profitIncome', title: '利润收入' },
+      { img: '/static/images/icon4.png', src: '../profitIncome/profitIncome', title: '利润支出' },
+      { img: '/static/images/icon5.png', src: '../profitIncome/profitIncome', title: '返利收入' },
+      { img: '/static/images/icon6.png', src: '../profitIncome/profitIncome', title: '返利支出' }
       ]
   },
 

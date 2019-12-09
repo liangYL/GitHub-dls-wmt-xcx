@@ -7,22 +7,22 @@ const util = require('../../utils/util.js')
 Page({
   data: {
     grids: [
-      { img: '/source/images/iocn_01.png',src:'../shops/shop/shop', title: '商城' },
-      { img: '/source/images/iocn_02.png', src: '../orders/menu/menu', title: '订单' },
-      { img: '/source/images/iocn_03.png', src: '../wealths/menu/menu', title: '财富' },
-      { img: '/source/images/iocn_04.png', src: '', title: '人员' },
-      { img: '/source/images/iocn_05.png', src: '../material/material', title: '素材' },
-      { img: '/source/images/iocn_06.png', src: '../mys/my/my', title: '我的' }],
+      { img: '/static/images/iocn_01.png',src:'../shops/shop/shop', title: '商城' },
+      { img: '/static/images/iocn_02.png', src: '../orders/menu/menu', title: '订单' },
+      { img: '/static/images/iocn_03.png', src: '../wealths/menu/menu', title: '财富' },
+      { img: '/static/images/iocn_04.png', src: '', title: '人员' },
+      { img: '/static/images/iocn_05.png', src: '../material/material', title: '素材' },
+      { img: '/static/images/iocn_06.png', src: '../mys/my/my', title: '我的' }],
     imgUrls: [
       'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
       'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
     ],
-    mesinfo: [],
+    mesinfo: [{ notice_info: '数据一' }, { notice_info:'数据二'}],
 
   },
   onLoad: function () {
 
-    this.onInitMessageData();
+    // this.onInitMessageData();
 
   }
   ,

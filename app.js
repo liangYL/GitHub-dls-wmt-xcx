@@ -39,6 +39,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    version: "1.0.0",
   }
+ 
 })

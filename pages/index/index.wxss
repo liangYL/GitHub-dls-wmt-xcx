@@ -34,15 +34,15 @@
 
 }
 .message{
-  width: 60rpx;
+  width: 50rpx;
   height: 100rpx;
   margin: 0px 10px
 }
 .mes_swiper {
-    height: 80rpx;
+    height: 100rpx;
 }
 .mes_swiper text{
-   height: 80rpx;
+   height: 100rpx;
 }
 .mes_title{
    margin: 20rpx 10rpx;

@@ -12,14 +12,16 @@
           </block>        
       </scroll-view>
       <!-- 页面内容 -->
-      <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">        
-          <swiper-item wx:for="{{[0,1,2,3]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
+      <!-- <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">        
+          <swiper-item wx:for="{{navData}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content"> -->
+         
+              <!--start 内容部分可直接删除-->
+              <view class="tab-box"  wx:for="{{dataArray}}" wx:for-item="btabItem" >
+                <view class="text-content" >{{btabItem.text}}</view>
+              </view>
               
-              <view style="height:100px">{{tabItem}}</view>
-              
-
-          </swiper-item>
-      </swiper>
+          <!-- </swiper-item>
+      </swiper> -->
   </view>
 
 

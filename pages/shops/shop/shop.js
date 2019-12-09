@@ -9,7 +9,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataArray:[]
+    dataArray:[{
+      pk_id:'111',
+      src:'/static/images/del_01.jpg',
+      goods_name:'春夏秋冬精品',
+      market_price:'199.00',
+      sale_price:'299.00',
+      member_price:'399.00',
+      agent_price:'499.00'
+    }, {
+        pk_id: '222',
+        src: '/static/images/del_01.jpg',
+        goods_name: '勇士的荣耀大师酒',
+        market_price: '199.00',
+        sale_price: '299.00',
+        member_price: '399.00',
+        agent_price: '499.00'
+      }]
   },
 
   /**

@@ -10,13 +10,35 @@
     "pages/orders/menu/menu",
     "pages/orders/myOrder/myOrder",
     "pages/wealths/profitIncome/profitIncome",
-    "pages/material/material"
+    "pages/material/material",
+    "pages/other/other"
   ],
+  "tabBar": {
+    "color": "#C0C0C0",
+    "selectedColor": "#25CAFC",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "static/images/iocn_order_13.png",
+        "selectedIconPath": "static/images/iocn_order_08.png"
+      },
+      {
+        "pagePath": "pages/other/other",
+        "text": "其他",
+        "iconPath": "static/images/iocn_act_05.png",
+        "selectedIconPath": "static/images/iocn_act_02.png"
+      }
+    ]
+  },
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#5677FC",
+    "navigationBarTitleText": "万茗堂",
+    "navigationBarTextStyle": "white",
+    "backgroundColorTop": "#fafafa",
+    "backgroundColorBottom": "#fafafa"
   },
   "sitemapLocation": "sitemap.json"
 }

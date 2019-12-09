@@ -2,7 +2,7 @@
   <view class="weui-panel__bd" wx:for="{{dataArray}}">
     <navigator url="../goods/goods?pk_id={{item.pk_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
       <view  class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-        <image class="weui-media-box__thumb" src="{{item.goods_cover[0].src}}" />
+        <image class="weui-media-box__thumb" src="{{item.src}}" />
       </view>
       <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
         <view class="weui-media-box__title">{{item.goods_name}}</view>

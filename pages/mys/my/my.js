@@ -6,13 +6,13 @@ Page({
    */
   data: {
     listData:[
-      { img: '/source/images/my_icon_01.png', title: '我的客服经理', url: ''},
-      { img: '/source/images/my_icon_02.png', title: '我的活动',    url: ''},
-      { img: '/source/images/my_icon_03.png', title: '我的信息', url: ''},
-      { img: '/source/images/my_icon_04.png', title: '我的提现', url: ''},
-      { img: '/source/images/my_icon_05.png', title: '商城订单', url: ''},
-      { img: '/source/images/my_icon_06.png', title: '地址管理', url: ''},
-      { img: '/source/images/my_icon_07.png', title: '帮助中心', url: ''},
+      { img: '/static/images/my_icon_01.png', title: '我的客服经理', url: ''},
+      { img: '/static/images/my_icon_02.png', title: '我的活动',    url: ''},
+      { img: '/static/images/my_icon_03.png', title: '我的信息', url: ''},
+      { img: '/static/images/my_icon_04.png', title: '我的提现', url: ''},
+      { img: '/static/images/my_icon_05.png', title: '商城订单', url: ''},
+      { img: '/static/images/my_icon_06.png', title: '地址管理', url: ''},
+      { img: '/static/images/my_icon_07.png', title: '帮助中心', url: ''},
 
     ],
     userinfo:{}

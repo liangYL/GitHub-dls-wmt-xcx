@@ -6,9 +6,9 @@ Page({
    */
   data: {
     grids: [
-      { img: '/source/images/iocn_order_01.png', src: '../myOrder/myOrder', title: ' 我的订单' },
-      { img: '/source/images/iocn_order_03.png', src: '../myOrder/myOrder', title: '我的库存' },
-      { img: '/source/images/iocn_order_04.png', src: '../myOrder/myOrder', title: '下级订单' }]
+      { img: '/static/images/iocn_order_01.png', src: '../myOrder/myOrder', title: ' 我的订单' },
+      { img: '/static/images/iocn_order_03.png', src: '../myOrder/myOrder', title: '我的库存' },
+      { img: '/static/images/iocn_order_04.png', src: '../myOrder/myOrder', title: '下级订单' }]
   },
 
   /**

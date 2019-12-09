@@ -23,7 +23,7 @@
   <view class="page__bd page__bd_spacing">
     <view class="weui-flex">
       <view>
-        <image class="message" src='/source/images/iocn_07.png' />
+        <image class="message" src='/static/images/iocn_07.png' />
       </view>
       <view class="weui-flex__item mes_title">
         <swiper class="mes_swiper" autoplay="true" interval="5000" duration="500" vertical="true">
@@ -35,7 +35,7 @@
         </swiper>
       </view>
       <view>
-        <image class="message" src='/source/images/iocn_08.png' />
+        <image class="message" src='/static/images/iocn_08.png' />
       </view>
     </view>
   </view>

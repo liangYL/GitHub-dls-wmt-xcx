@@ -8,30 +8,42 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    navData: [
-      {
-        text: '代发货',
-        src:'/source/images/iocn_order_10.png',
-        selSrc: '/source/images/iocn_order_05.png'
-      },
-      {
-        text: '待收货',
-        src: '/source/images/iocn_order_11.png',
-        selSrc: '/source/images/iocn_order_06.png'
-      },
-      {
-        text: '待评价',
-        src: '/source/images/iocn_order_12.png',
-        selSrc: '/source/images/iocn_order_07.png'
-      },
-      {
-        text: '全部',
-        src: '/source/images/iocn_order_13.png',
-        selSrc: '/source/images/iocn_order_08.png'
-      }
+    navData: [{
+      text: '代发货',
+      src: '/static/images/iocn_order_10.png',
+      selSrc: '/static/images/iocn_order_05.png'
+    },
+    {
+      text: '待收货',
+      src: '/static/images/iocn_order_11.png',
+      selSrc: '/static/images/iocn_order_06.png'
+    },
+    {
+      text: '待评价',
+      src: '/static/images/iocn_order_12.png',
+      selSrc: '/static/images/iocn_order_07.png'
+    },
+    {
+      text: '全部',
+      src: '/static/images/iocn_order_13.png',
+      selSrc: '/static/images/iocn_order_08.png'
+    }
+    ],
+    dataArray: [{
+      text: '代发货'
+    },
+    {
+      text: '待收货'
+    },
+    {
+      text: '待评价'
+    },
+    {
+      text: '全部'
+    }
     ],
     currentTab: 0,
-    navScrollLeft: 0
+    navScrollLeft: 0,
   },
   //事件处理函数
   onLoad: function () {
@@ -61,7 +73,6 @@ Page({
         }
       })
     }
-
 
     wx.getSystemInfo({
       success: (res) => {
@@ -97,10 +108,44 @@ Page({
       navScrollLeft: (cur - 2) * singleNavWidth
     });
   },
-  /**
-  * 页面上拉触底事件的处理函数
-  */
-  onReachBottom: function () {
-    alert('la');
+  onPullDownRefresh: function () {
+    console.log('111');
+    wx.showToast({
+      title: '下拉刷新',
+      icon: "none"
+    })
+    this.setData({
+      dataArray: [{
+        text: '代发货'
+      },
+      {
+        text: '待收货'
+      },
+      {
+        text: '待评价'
+      },
+      {
+        text: '全部'
+      }
+      ]
+    })
+    wx.stopPullDownRefresh();
   },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log('222');
+    this.setData({
+      dataArray: this.data.dataArray.concat([{
+        text: '1111'
+      }, {
+        text: '2222'
+      }])
+    })
+    wx.showToast({
+      title: '加载更多',
+      icon: "none"
+    })
+  }
 })
