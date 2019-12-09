@@ -14,7 +14,6 @@ Page({
       { img: '/source/images/iocn_05.png', src: '../material/material', title: '素材' },
       { img: '/source/images/iocn_06.png', src: '../mys/my/my', title: '我的' }],
     imgUrls: [
-      'https://www.baidu.com/img/bd_logo1.png',
       'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
       'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
     ],
