@@ -1,0 +1,80 @@
+<!--pages/wealths/withdrawal/withdrawal.wxml-->
+<view class="tui-container">
+
+  <view class="tui-flex tui-align-between tui-head">
+
+    <view class="tui-left tui-col-8 ">
+      <view>提现金额
+      </view>
+      <view>¥ 1000.00
+      </view>
+      <view>可提金额456
+      </view>
+    </view>
+    <view class="tui-center tui-col-4">
+      <button class="tui-btn tui-btn-mini tui-danger-outline" hover-class="tui-outline-hover">全部提现</button>
+
+    </view>
+
+  </view>
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <tui-view title="请填写您的银行卡信息" tui-view-class="tui-view">
+
+      <tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+        <view class="tui-flex tui-align-between">
+          <view class="tui-col-3">地区</view>
+          <view class="tui-col-9" >
+            <city-select bindregionChange="onRegionChange">
+              <text>{{region.length !== 0?'':'请选择地区'}}<text>{{region[0][select[0]].value}}{{region[1][select[1]].value}}</text></text>
+            </city-select>
+          </view>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+        <view class="tui-flex tui-align-between">
+          <view class="tui-col-3">持卡人</view>
+          <view class="tui-col-9">
+            <input placeholder-class="phcolor" class="tui-input" name="account_name" placeholder="请输入持卡人姓名" maxlength="50" type="number" />
+          </view>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+        <view class="tui-flex tui-align-between">
+          <view class="tui-col-3">银行卡号</view>
+          <view class="tui-col-9">
+            <input placeholder-class="phcolor" class="tui-input" name="account_num" placeholder="请输入银行卡卡号" maxlength="50" type="number" />
+          </view>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+        <view class="tui-flex tui-align-between">
+          <view class="tui-col-3">银行名称</view>
+          <view class="tui-col-9">
+            <input placeholder-class="phcolor" class="tui-input" name="bank_name" placeholder="例中国银行" maxlength="50" type="number" />
+          </view>
+        </view>
+      </tui-list-cell>
+      <tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+        <view class="tui-flex tui-align-between">
+          <view class="tui-col-3">支行名称</view>
+          <view class="tui-col-9">
+            <input placeholder-class="phcolor" class="tui-input" name="zh_bank_name" placeholder="例中国银行上海市分行浦东支行" maxlength="50" type="number" />
+          </view>
+        </view>
+      </tui-list-cell>
+
+    </tui-view>
+    <view class="tui-btn-box">
+      <button class="tui-btn tui-btn-block tui-black" hover-class="tui-gray-hover" formType="submit">确认提现</button>
+
+    </view>
+  </form>
+
+
+
+</view>

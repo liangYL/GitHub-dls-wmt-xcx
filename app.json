@@ -11,7 +11,9 @@
     "pages/orders/myOrder/myOrder",
     "pages/wealths/profitIncome/profitIncome",
     "pages/material/material",
-    "pages/other/other"
+    "pages/other/other",
+    "pages/wealths/profitExpend/profitExpend",
+    "pages/wealths/withdrawal/withdrawal"
   ],
   "tabBar": {
     "color": "#C0C0C0",
@@ -40,5 +42,8 @@
     "backgroundColorTop": "#fafafa",
     "backgroundColorBottom": "#fafafa"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "tui-button": "components/button/button"
+  }
 }

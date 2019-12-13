@@ -5,9 +5,43 @@ Page({
    * 页面的初始数据
    */
   data: {
+    cur:true,
+    random: Math.floor(Math.random() * 6 + 1),
+    aa: {
+      title: {
+        text: "CSDN云计算",
+        color: "#ed3f14",
+        size: 22
+      },
+      tag: {
+        text: "1小时前",
+        color: "#ed3f14",
+        size: 22
+      }
+    }
+    ,dataList:[{
 
+    },{
+
+      }, {
+
+      }, {
+
+      }, {
+
+      }]
   },
-
+  tuiNavClick: function (options) {
+    var that = this;
+    this.setData({
+      cur: !that.data.cur,
+    })
+  },
+  toWithdrawalClick: function(options) {
+    wx.navigateTo({
+      url: '../withdrawal/withdrawal'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

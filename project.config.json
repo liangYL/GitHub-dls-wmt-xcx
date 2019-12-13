@@ -58,6 +58,27 @@
 					"id": -1,
 					"name": "pages/orders/myOrder/myOrder",
 					"pathName": "pages/orders/myOrder/myOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/wealths/profitExpend/profitExpend",
+					"pathName": "pages/wealths/profitExpend/profitExpend",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/wealths/profitIncome/profitIncome",
+					"pathName": "pages/wealths/profitIncome/profitIncome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/wealths/withdrawal/withdrawal",
+					"pathName": "pages/wealths/withdrawal/withdrawal",
 					"scene": null
 				}
 			]

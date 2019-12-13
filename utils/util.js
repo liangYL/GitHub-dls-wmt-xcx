@@ -27,8 +27,21 @@ const onHttpPost = function(url,data,callBack){
   })
 }
 
+const getDateList = function () {
+  var myDate = new Date();
+  var result = [];
+  for (var i = 0; i < 6; i++) {
+    myDate.setMonth(myDate.getMonth() - 1);
+    var m = myDate.getMonth() + 1;
+    m = m < 10 ? "0" + m : m;
+    result.push(myDate.getFullYear() + "-" + m);
+  }
+  result.unshift('全部');
+  return result;
+}
 
 module.exports = {
   formatTime: formatTime,
-  onHttpPost: onHttpPost
+  onHttpPost: onHttpPost,
+  getDateList: getDateList
 }

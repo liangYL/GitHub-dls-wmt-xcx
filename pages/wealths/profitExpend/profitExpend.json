@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "tui-icon": "../../../components/icon/icon",
+    "tui-top-dropdown": "../../../components/top-dropdown/top-dropdown",
+    "tui-list-cell": "../../../components/list-cell/list-cell",
+    "tui-dropdown-list": "../../../components/dropdown-list/dropdown-list",
+    "tui-bottom-popup": "../../../components/bottom-popup/bottom-popup",
+    "tui-view": "../../../components/list-view/list-view"
+      
+  },
+  "enablePullDownRefresh": true
+}

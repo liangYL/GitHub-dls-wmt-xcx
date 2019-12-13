@@ -1,1 +1,95 @@
 /* pages/wealths/profitIncome/profitIncome.wxss */
+@import '../../../style/thorui.wxss';
+page{
+  background-color: rgb(241, 241, 241);
+
+}
+.tui-heard{
+  /* background-color: rgb(207, 160, 106); */
+  background: linear-gradient(rgb(221, 180, 126), rgb(141, 109, 73));
+
+  height: 260rpx;
+
+}
+.tui-heard-top{
+  padding: 40rpx 40rpx 10rpx;
+}
+.tui-heard-bottom{
+  margin: 30rpx;
+  margin-top: 10rpx;
+  background-color: white;
+  height: 160rpx;
+  border-radius: 10rpx;
+  border-style: solid;
+  box-shadow:0px 0px 4px 0px rgb(218, 216, 216) !important;
+  border-width: 0rpx;
+}
+.tui-btn-tx{
+  margin-top: 20rpx;
+}
+.tui-b-line{
+  width: 2rpx;
+  background-color: gainsboro;
+  margin: 30rpx 0rpx;
+}
+.tui-nav-line{
+  width: 2rpx;
+  background-color: gainsboro;
+  margin: 20rpx 0rpx 50rpx;
+}
+.tui-heard-bottom .tui-center{
+  padding: 20rpx;
+}
+.bt-title{
+  font-size: 32rpx;
+}
+.bb-title{
+  font-size: 40rpx;
+  color: red;
+}
+.tt-title{
+  color: white;
+}
+.tb-title{
+  color: white;
+  font-weight: 40rpx;
+  font-size: 44rpx
+}
+
+.tui-card{
+  margin-bottom: 15px !important;
+  border-style: solid;
+  box-shadow:0px 2px 4px 2px rgb(230, 230, 230) !important;
+  border-width: 0rpx;
+}
+
+.tui-content{
+  margin-top:130rpx;
+  padding: 20rpx 0rpx;
+  background-color: white;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+
+}
+.tui-default {
+  padding: 20rpx 30rpx;
+}
+
+.tui-nav{
+  height: 100rpx;
+}
+.tui-nav view{
+  font-size: 36rpx;
+}
+.tui-nav .cur{
+  color: red;
+}
+.tui-nav .cur text{
+  padding-bottom: 15rpx;
+  border-bottom:2px solid #F00;
+}
+
+
+
+
+

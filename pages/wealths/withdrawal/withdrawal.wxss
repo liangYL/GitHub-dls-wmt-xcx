@@ -1,0 +1,36 @@
+/* pages/wealths/withdrawal/withdrawal.wxss */
+@import '../../../style/thorui.wxss';
+
+page{
+  background-color: rgb(230, 230, 230);
+}
+.tui-head{
+  background-color: ghostwhite;
+  padding: 10rpx 20rpx;
+}
+.tui-head .tui-col-8 view{
+  padding-top: 10rpx ;
+}
+.tui-head .tui-col-8 view:nth-child(2){
+  font-size: 40rpx;
+}
+.tui-head .tui-col-4 button{
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.tui-view{
+  margin-top:40rpx;
+  background-color: white;
+  font-size: 30rpx;
+}
+.tui-view .tui-cell .tui-flex{
+  width: 100%;
+  font-size: 30rpx;
+}
+
+
+.tui-btn-box{
+  margin: 40rpx;
+}

@@ -1,4 +1,6 @@
 //app.js
+var aes = require('/utils/httpUtils/aes.js');
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -41,6 +43,8 @@ App({
   globalData: {
     userInfo: null,
     version: "1.0.0",
+    iv: aes.CryptoJS.enc.Utf8.parse('12328547FHDKDSOP')//十六位十六进制数作为密钥偏移量
+
   }
  
 })

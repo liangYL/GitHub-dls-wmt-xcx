@@ -1,0 +1,45 @@
+<!--下拉选择框 dropdownlist-->
+<view class="tui-container">
+  <view class="tui-flex tui-align-between tui-hearder">
+    <view class="tui-center  tui-col-5">
+      <view class="selBtn">
+        <tui-dropdown-list  show="{{dropdownShow}}" top="75" height="600">
+          <tui-button size="mini" type="white" shape="circle" slot="selectionbox" bind:click="dropDownList" data-index="atitle">{{dropdownlist[index]}}
+            <tui-icon name="turningdown" size="20" tui-icon-class="tui-animation {{dropdownShow?'tui-animation-show':''}}"></tui-icon>
+          </tui-button>
+          <view slot="dropdownbox" class="tui-selected-list">
+            <scroll-view scroll-y class="tui-dropdown-scroll">
+              <block wx:for="{{dropdownlist}}" wx:key="{{index}}">
+                <tui-list-cell padding="10rpx 30rpx" tui-cell-class="tui-selected-item" bind:click="dropDownList" data-index="{{index}}" lineLeft="true" last="{{dropdownlist.length-1==index}}">
+                  <text class="tui-ml-200">{{item}}</text>
+                </tui-list-cell>
+              </block>
+            </scroll-view>
+          </view>
+        </tui-dropdown-list>
+      </view>
+
+
+    </view>
+    <view class="tui-center  tui-col-4 heard-ti">
+      <view> 全部 ￥ {{50000}}</view>
+      <view> 支出 ￥ {{consume_price}}</view>
+
+    </view>
+  </view>
+  <tui-view unlined="all" tui-view-class="tui-view">
+    <tui-list-cell tui-cell-class="tui-cell"  hover="{{false}}">
+      <block wx:for="{{dataArray}}" wx:key="{{index}}" wx:for-item="list" >
+        <view class="tui-cell-left">
+          <view>{{list.order_code}}</view>
+          <view>{{list.zc_type}}</view>
+          <view>{{list.create_date}}</view>
+        </view>
+        <view class="tui-cell-right">-{{list.consume_price}}</view>
+      </block>
+    </tui-list-cell>
+
+  </tui-view>
+
+</view>
+<!--下拉选择框-->

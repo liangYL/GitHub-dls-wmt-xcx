@@ -1,0 +1,44 @@
+/* pages/wealths/profitExpend/profitExpend.wxss */
+@import '../../../style/thorui.wxss';
+
+.selBtn{
+  margin-top: 20rpx;
+}
+.tui-hearder{
+  background-color: rgb(245, 245, 245);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999
+}
+.heard-ti{
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+
+}
+.tui-view{
+  padding-top: 120rpx;
+}
+.tui-ml-200{
+  width: 100%;
+  /* border-bottom: 1px solid #dbdbdb; */
+}
+/* .tui-cell{ */
+  /* border-bottom: 1px solid #cdcece; */
+  /* margin-left: 30rpx; */
+/* } */
+
+.tui-cell-left{
+  float: left;
+}
+.tui-cell-right{
+  max-width: 100rpx;
+  /* height: 88rpx; */
+  margin-left: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
