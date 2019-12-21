@@ -1,29 +1,43 @@
 /* pages/wealths/profitIncome/profitIncome.wxss */
 @import '../../../style/thorui.wxss';
 page{
-  background-color: rgb(241, 241, 241);
+  background-color: #f5f5f5;
 
+}
+page,.tui-container{
+  height: 100%;
+}
+.tui-container {
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .tui-heard{
-  /* background-color: rgb(207, 160, 106); */
-  background: linear-gradient(rgb(221, 180, 126), rgb(141, 109, 73));
-
-  height: 260rpx;
-
-}
-.tui-heard-top{
-  padding: 40rpx 40rpx 10rpx;
-}
-.tui-heard-bottom{
-  margin: 30rpx;
-  margin-top: 10rpx;
   background-color: white;
-  height: 160rpx;
+  height: 300rpx;
+}
+/* .tui-heard-top{
+  padding: 40rpx 40rpx 10rpx;
+} */
+.tui-heard-bottom{
+  margin: 40rpx;
+  background: linear-gradient(rgb(243, 197, 137), rgb(167, 129, 85));
+  height: 220rpx;
   border-radius: 10rpx;
   border-style: solid;
   box-shadow:0px 0px 4px 0px rgb(218, 216, 216) !important;
   border-width: 0rpx;
+  padding: 0rpx 10rpx;
 }
+.tui-heard-bottom image{
+  width: 80%;
+  height: 80%;
+}
+.tui-vertical-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .tui-btn-tx{
   margin-top: 20rpx;
 }
@@ -32,20 +46,17 @@ page{
   background-color: gainsboro;
   margin: 30rpx 0rpx;
 }
-.tui-nav-line{
-  width: 2rpx;
-  background-color: gainsboro;
-  margin: 20rpx 0rpx 50rpx;
-}
 .tui-heard-bottom .tui-center{
   padding: 20rpx;
 }
 .bt-title{
   font-size: 32rpx;
+  color: #FFFFFF;
 }
 .bb-title{
-  font-size: 40rpx;
-  color: red;
+  font-size:44rpx;
+  color: #FFFFFF;
+  font-weight:bold;
 }
 .tt-title{
   color: white;
@@ -53,9 +64,49 @@ page{
 .tb-title{
   color: white;
   font-weight: 40rpx;
-  font-size: 44rpx
+  font-size: 44rpx;
 }
 
+.tui-content{
+  margin-top:30rpx;
+  padding: 20rpx 0rpx;
+  background-color: white;
+  /* border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx; */
+  /* padding-bottom: 60px; */
+  height: calc( 100% - 370rpx )
+}
+.tui-nav{
+  height: 100rpx;
+}
+.tui-nav view{
+  font-size: 40rpx;
+}
+.tui-nav-line{
+  width: 2rpx;
+  background-color: gainsboro;
+  height: 20px;
+  margin-top: -30px;
+  margin-left: 50%;
+  z-index: 99999;
+  position: absolute;
+
+}
+.tui-nav tex{
+  color: #000000;
+}
+.tui-nav .cur{
+  color: #E34A4A;
+}
+.tui-nav .cur text{
+  padding-bottom: 15rpx;
+  border-bottom:2px solid #E34A4A;
+}
+
+.tui-card-view{
+  background-color: white;
+  padding-bottom: 10px;
+}
 .tui-card{
   margin-bottom: 15px !important;
   border-style: solid;
@@ -63,33 +114,30 @@ page{
   border-width: 0rpx;
 }
 
-.tui-content{
-  margin-top:130rpx;
-  padding: 20rpx 0rpx;
-  background-color: white;
-  border-top-left-radius: 30rpx;
-  border-top-right-radius: 30rpx;
-
-}
-.tui-default {
+.tui-card .tui-default{
   padding: 20rpx 30rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+.tui-card .tui-default .tui-num{
+  font-size: 28rpx;
+}
+.tui-card .tui-default .gray-text{
+  color: #999999;
+}
+.tui-card .tui-default text{
+  color: #E34A4A;
 }
 
-.tui-nav{
-  height: 100rpx;
-}
-.tui-nav view{
-  font-size: 36rpx;
-}
-.tui-nav .cur{
-  color: red;
-}
-.tui-nav .cur text{
-  padding-bottom: 15rpx;
-  border-bottom:2px solid #F00;
+.tui-tips{ 
+  height: calc( 100% - 110rpx );
 }
 
-
-
-
-
+/* 
+navigator{
+  background-color: transparent !important;
+  opacity: 1 !important;
+} */
+.tui-nomore-class,.tui-loadmore-class{
+    background-color: white;
+}

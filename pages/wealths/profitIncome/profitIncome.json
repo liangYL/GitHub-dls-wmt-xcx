@@ -1,6 +1,10 @@
 {
   "usingComponents": {
-    "tui-card": "../../../components/card/card"
-    
+    "tui-card": "../../../components/card/card",
+    "tui-loadmore": "../../../components/loadmore/loadmore",
+    "tui-nomore": "../../../components/nomore/nomore",
+    "tui-tabs": "../../../components/tui-tabs/tui-tabs",
+    "tui-tips": "../../../components/tips/tips"
   }
+  ,"enablePullDownRefresh": true
 }

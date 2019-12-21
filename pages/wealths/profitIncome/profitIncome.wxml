@@ -1,77 +1,105 @@
 <view class="tui-container">
-  <view class="tui-heard" >
-    <view class="tui-flex tui-align-between tui-heard-top">
+
+  <!-- 顶部视图 -->
+  <view class="tui-heard">
+    <!-- <view class="tui-flex tui-align-between tui-heard-top">
       <view>
         <view class="tt-title">可提现金额</view>
         <view class="tb-title">2342</view>
       </view>
-      <tui-button tui-button-class="tui-btn-tx" size="mini" type="white" shape="circle" bind:click="toWithdrawalClick">申请提现</tui-button>
-    </view>
-
-    <view class="tui-flex tui-heard-bottom">
-      <view class="tui-center  tui-col-6">
-        <view class="bt-title">本月利润</view>
-        <view class="bb-title">222</view>
+      <navigator url="../withdrawal/withdrawal">
+        <tui-button tui-button-class="tui-btn-tx" size="mini" type="white" shape="circle">申请提现</tui-button>
+      </navigator>
+    </view> -->
+    <view class="tui-flex">
+      <view class="tui-center  tui-col-12">
+        <view class="tui-flex tui-heard-bottom">
+          <view class="tui-vertical-center tui-col-4">
+            <image src="../../../static/images/图标.png" mode="widthFix"></image>
+          </view>
+          <view class="tui-vertical-center tui-col-4">
+            <view class="bb-title">{{rebate.ky_xj_profit}}</view>
+            <view class="bt-title">可用返利</view>
+          </view>
+          <!-- <view class="tui-b-line"></view> -->
+          <view class="tui-vertical-center tui-col-4">
+            <view class="bb-title">{{rebate.sum_xj_profit}}</view>
+            <view class="bt-title">历史总返利</view>
+          </view>
+        </view>
       </view>
-      <view class="tui-b-line"></view>
-      <view class="tui-center  tui-col-6">
-        <view class="bt-title">总利润</view>
-        <view class="bb-title">222</view>
-      </view>
     </view>
-
   </view>
+
+  <!-- 列表 -->
   <view class="tui-content">
-    <view class="tui-flex tui-align-center tui-nav">
-      <view class="tui-center tui-col-6 {{cur?'cur':''}}" bindtap="tuiNavClick">返<text>利收</text>入</view>
+
+    <!-- 列表导航 -->
+    <view class=" tui-align-center tui-nav">
+      <tui-tabs tabs="{{navbar}}" currentTab="{{currentTab>1?0:currentTab}}" bind:change="change" unlined="true" size="40" color="#000000" selectedColor="#E34A4A" sliderBgColor="#E34A4A" itemWidth="50%"></tui-tabs>
       <view class="tui-nav-line "></view>
-      <view class="tui-center tui-col-6 {{cur?'':'cur'}}" bindtap="tuiNavClick">返<text>利支</text>出</view>
-    </view>
-    <view hidden="{{!cur}}">
-      <tui-card  wx:for="{{dataList}}" tui-card-class="tui-card" title="{{aa.title}}" tag="{{aa.tag}}">
-        <view slot="body" class="tui-default">
-          <view class="tui-flex tui-align-between">
-            <view class="tui-col-9">1111</view>
-            <view class="tui-right tui-col-3">
-              <view> 1111</view>
-              <view> 1111</view>
-            </view>
-          </view>
-        </view>
-        <view slot="footer" class="tui-default">
-          <view class="tui-flex">
-            <view class="tui-right tui-col-12">总金额:
-              <text>1111</text> 返利金额:
-              <text>12312</text>
-            </view>
-          </view>
-        </view>
-      </tui-card>
-    </view>
-    <view hidden="{{cur}}">
-      <tui-card  wx:for="{{dataList}}" tui-card-class="tui-card" title="{{aa.title}}" tag="{{aa.tag}}">
-        <view slot="body" class="tui-default">
-          <view class="tui-flex tui-align-between">
-            <view class="tui-col-9">22222</view>
-            <view class="tui-right tui-col-3">
-              <view> 222</view>
-              <view> 222</view>
-            </view>
-          </view>
-        </view>
-        <view slot="footer" class="tui-default">
-          <view class="tui-flex">
-            <view class="tui-right tui-col-12">金额:
-              <text>12312</text>
-            </view>
-          </view>
-        </view>
-      </tui-card>
     </view>
 
+    <view class="tui-card-view" hidden="{{!cur}}">
+      <tui-card wx:for="{{inCardList}}" tui-card-class="tui-card" title="{{item.title}}" tag="{{item.tag}}">
+        <view slot="body" class="tui-default">
+          <view class="tui-flex tui-align-between">
+            <view class="tui-col-9">{{item.product_name}}</view>
+            <view class="tui-right tui-col-3">
+              <view>¥ {{item.price}}</view>
+              <view class="gray-text tui-num">x {{item.qty}}</view>
+            </view>
+          </view>
+        </view>
+        <view slot="footer" class="tui-default">
+          <view class="tui-flex">
+            <view class="tui-right tui-col-12 gray-text">总金额 :
+              <text>¥ {{item.amount}}</text> 返利金额 :
+              <text>¥ {{item.rebate_money}}</text>
+            </view>
+          </view>
+        </view>
+      </tui-card>
+      <!--加载loadding-->
+      <tui-loadmore class="tui-loadmore-class" visible="{{inLoadding}}"></tui-loadmore>
+      <tui-nomore class="tui-nomore-class" visible="{{!inPullUpOn}}"></tui-nomore>
+      <!--加载loadding-->
+    </view>
+
+    <view class="tui-card-view" hidden="{{cur}}">
+      <tui-card wx:for="{{exCardList}}" tui-card-class="tui-card" title="{{item.title}}" tag="{{item.tag}}">
+        <view slot="body" class="tui-default">
+          <view class="tui-flex tui-align-between">
+            <view class="tui-col-9">{{item.product_name}}</view>
+            <view class="tui-right tui-col-3">
+              <view>¥ {{item.price}}</view>
+              <view class="gray-text tui-num">x {{item.qty}}</view>
+            </view>
+          </view>
+        </view>
+        <view slot="footer" class="tui-default">
+          <view class="tui-flex">
+            <view class="tui-right tui-col-12 gray-text">金额 :
+              <text>{{item.useReb_money}}</text>
+            </view>
+          </view>
+        </view>
+      </tui-card>
+
+      <!--加载loadding-->
+      <tui-loadmore class="tui-loadmore-class" visible="{{exLoadding}}"></tui-loadmore>
+      <tui-nomore class="tui-nomore-class" visible="{{!exPullUpOn}}"></tui-nomore>
+      <!--加载loadding-->
+    </view>
+
+      <!-- <view wx:if="{{cur==true}}"> -->
+      <tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{cur==true&&inLoadding==false&&inCardList.length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+    <!-- </view> -->
+    <!-- <view wx:if="{{cur==false}}"> -->
+      <tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{cur==false&&exLoadding==false&&exCardList.length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+    <!-- </view> -->
 
   </view>
-
 
 
 </view>
