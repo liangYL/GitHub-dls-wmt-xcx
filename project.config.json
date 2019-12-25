@@ -79,6 +79,20 @@
 					"id": -1,
 					"name": "pages/wealths/withdrawal/withdrawal",
 					"pathName": "pages/wealths/withdrawal/withdrawal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orders/stock/stock",
+					"pathName": "pages/orders/stock/stock",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orders/stockPay/stockPay",
+					"pathName": "pages/orders/stockPay/stockPay",
 					"scene": null
 				}
 			]

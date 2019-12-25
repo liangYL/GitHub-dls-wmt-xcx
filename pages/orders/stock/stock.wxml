@@ -1,0 +1,63 @@
+<!--pages/orders/stock/stock.wxml-->
+<view class="tui-container">
+
+  <view wx:for="{{listData}}" wx:key="{{index}}" class="tui-flex ly-cell">
+    <view class="tui-vertical-center tui-col-3 tui-item1">
+      <image src="" mode="widthFix"></image>
+    </view>
+    <view class="tui-col-9 tui-item2">
+      <view>{{item.product_name}}</view>
+      <view class="tui-flex">
+        <view class="tui-col-5 tui-num">剩余 : {{item.wtqty}}</view>
+        <button class="tui-btn tui-btn-small tui-black tui-fillet " bindtap="showModal" data-doccode="{{item.doccode}}" data-productid="{{item.product_id}}" hover-class="tui-gray-hover">详情</button>
+        <navigator url="../stockPay/stockPay?doccode={{item.doccode}}&product_id={{item.product_id}}" hover-class="none">
+          <button class="tui-btn tui-btn-small tui-danger tui-fillet " hover-class="tui-gray-hover">提货</button>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <tui-loadmore class="tui-loadmore-class" visible="{{loadding}}"></tui-loadmore>
+  <tui-nomore class="tui-nomore-class" visible="{{!pullUpOn}}"></tui-nomore>
+  <tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{loadding==false&&listData.length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+
+
+  <!--底部抽屉-->
+  <view class="mask-screen" bindtap="hideModal" hidden="{{!showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="region-box" hidden="{{!showModalStatus}}">
+    <scroll-view scroll-y="true" class="region-box-scl">
+      <view class="tui-order-tracking">
+        <tui-time-axis>
+          <block wx:for="{{xqListData}}" wx:key="index" wx:for-index="idx" wx:for-item="xqitem">
+            <tui-timeaxis-item bgcolor="none">
+              <view slot="node" class="tui-node {{idx==0?'tui-bg-primary':''}}">
+                <tui-icon name="calendar" color="#fff" size="14" bold="{{true}}"></tui-icon>
+              </view>
+              <view slot="content">
+                <view class="tui-order-title">
+                  <text class="tui-bold">{{xqitem.co_type}}</text> ({{xqitem.doccode}})
+                </view>
+                <view wx:if="{{xqitem.co_type=='提货'}}">
+                  <view class="tui-order-desc">提货数量:{{xqitem.qty}}</view>
+                  <view class="tui-order-time">{{xqitem.createdate}}</view>
+                </view>
+                <view wx:else>
+                  <view class="tui-order-desc">仓储日期:{{xqitem.sdate}}</view>
+                  <view class="tui-order-desc">到期日期:{{xqitem.edate}}</view>
+                  <view class="tui-order-desc">数量:{{xqitem.qty}}</view>
+                  <view class="tui-order-time">{{xqitem.createdate}}</view>
+                </view>
+              </view>
+            </tui-timeaxis-item>
+          </block>
+        </tui-time-axis>
+        <tui-loadmore class="tui-loadmore-class" visible="{{xqLoadding}}"></tui-loadmore>
+
+      </view>
+      <tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{xqLoadding==false&&xqListData.length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+    </scroll-view>
+  </view>
+
+
+
+</view>

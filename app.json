@@ -13,7 +13,9 @@
     "pages/material/material",
     "pages/other/other",
     "pages/wealths/profitExpend/profitExpend",
-    "pages/wealths/withdrawal/withdrawal"
+    "pages/wealths/withdrawal/withdrawal",
+    "pages/orders/stock/stock",
+    "pages/orders/stockPay/stockPay"
   ],
   "tabBar": {
     "color": "#C0C0C0",

@@ -1,0 +1,54 @@
+<!--pages/orders/stockPay/stockPay.wxml-->
+
+<view class="tui-container">
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+  <tui-cell bind:click="selectAddressClick" arrow="{{true}}">
+    <view wx:if="{{addRessData}}">
+      <view name="address">111</view>
+      <view>123123123</view>
+      <view>123123123</view>
+    </view>
+    <view wx:else>
+      <view>请选择地址</view>
+    </view>
+  </tui-cell>
+
+
+  <view class="tui-flex ly-cell">
+    <view class="tui-vertical-center tui-col-3 tui-item1">
+      <image src="" mode="widthFix"></image>
+    </view>
+    <view class="tui-col-9 tui-item2">
+      <view>{{aData.product_name}}</view>
+      <view class="tui-flex tui-align-between">
+        <view class="tui-col-5 tui-num">剩余 :
+          <text class="tui-red-color">{{aData.wtqty}}</text> </view>
+        <tui-numberbox value="{{value}}" min="1" max="{{aData.wtqty}}" bind:change="change"></tui-numberbox>
+
+      </view>
+    </view>
+  </view>
+
+
+  <tui-collapse index="{{0}}" current="{{colcur?0:-1}}" bind:click="colchange">
+    <tui-cell hover="{{false}}" slot="title">仓储费 :
+      <text class="tui-red-color" style="padding-left:10rpx">{{aData.cqfee}}</text>
+    </tui-cell>
+    <view class="tui-content" slot="content">仓储费 : 该产品自购买之日起，享受6个月的免费仓储期，过期后将按照5元/瓶/月的收费标准进行收费，请知悉！</view>
+  </tui-collapse>
+
+
+  <view class="tui-flex tui-align-between tui-bottom-view">
+    <view>¥ {{aData.cqfee}}</view>
+    <view>
+      <button class="tui-btn tui-btn-small tui-danger tui-fillet " hover-class="tui-gray-hover" formType="submit">提交</button>
+    </view>
+
+  </view>
+
+
+  </form>
+
+</view>

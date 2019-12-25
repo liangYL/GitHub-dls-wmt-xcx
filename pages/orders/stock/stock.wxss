@@ -1,0 +1,162 @@
+/* pages/orders/stock/stock.wxss */
+@import '../../../style/thorui.wxss';
+page{
+  background-color:#f5f5f5;
+  height: 100%;
+}
+.tui-container {
+  padding-bottom: env(safe-area-inset-bottom);
+   height: 100%;
+}
+.tui-tips{
+  height: 100%;
+}
+ 
+.ly-cell{
+  height: 260rpx;
+  margin-bottom: 10rpx;
+  background-color: white;
+}
+.tui-item1{
+  padding: 30rpx;
+}
+.tui-item1 image{
+  width: 200rpx;
+  background-color: blueviolet;
+}
+
+.tui-vertical-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tui-item2{
+  padding: 30rpx 20rpx 30rpx 0rpx;
+}
+.tui-item2 view{
+  font-size: 30rpx;
+}
+.tui-item2 > view:first-child{
+  height: 140rpx;
+}
+.tui-item2 > view:last-child{
+  height: 60rpx;
+}
+
+.tui-btn-small{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  color: "#FFFFFF";
+}
+.tui-item2 .tui-num{
+  line-height: 80rpx;
+}
+
+
+.mask-screen{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 99;
+}
+.region-box{
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  padding-top: 20rpx;
+  height: 80%;
+  padding: 40rpx 30rpx 48rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content:flex-start;
+}
+.region-box-scl{
+  width: 100%;
+  height: 100%;
+}
+.tui-order-header{
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.tui-text{
+  font-size: 28rpx;
+  color: #333;
+  padding:4rpx;
+}
+.tui-bold{
+  font-weight: bold;
+}
+.tui-node{
+  background: #ddd;
+  height: 44rpx;
+  width: 44rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding-top:0; 
+}
+.tui-node-small{
+  height: 16rpx !important;
+  width: 16rpx !important;
+}
+.tui-bg-primary{
+  background: #5677fc !important;
+}
+.tui-order-tracking{
+  padding: 30rpx 30rpx 30rpx 40rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}
+.tui-order-title{
+  color: #333;
+  /* font-weight: bold; */
+  font-size: 32rpx;
+  /* font-family: "microsoft yahei"; */
+}
+.tui-order-desc{
+  font-size: 28rpx;
+  color: #333333;
+  padding: 12rpx 0;
+}
+.tui-ptop{
+  padding-top: 0 !important;
+  vertical-align: top;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 28rpx;
+}
+.tui-order-time{
+ font-size: 24rpx;
+ font-weight: bold;
+ color: #999999;
+}
+.tui-gray{
+  color: #848484 !important;
+}
+.tui-light-gray{
+  color: #888 !important;
+}
+.tui-primary{
+  color: #5677fc;
+}
+
+

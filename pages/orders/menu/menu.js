@@ -7,7 +7,7 @@ Page({
   data: {
     grids: [
       { img: '/static/images/iocn_order_01.png', src: '../myOrder/myOrder', title: ' 我的订单' },
-      { img: '/static/images/iocn_order_03.png', src: '../myOrder/myOrder', title: '我的库存' },
+      { img: '/static/images/iocn_order_03.png', src: '../stock/stock', title: '我的库存' },
       { img: '/static/images/iocn_order_04.png', src: '../myOrder/myOrder', title: '下级订单' }]
   },
 
