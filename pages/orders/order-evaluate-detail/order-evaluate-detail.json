@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tui-rate": "../../../components/rate/rate",
+    "tui-upload": "../../../components/tui-uploadImgVideo/tui-uploadImgVideo"
+
+  }
+}

@@ -1,0 +1,32 @@
+<view>
+
+	<view class="tui-rate-box">
+		<view class="tui-title">产品满意度</view>
+		<tui-rate current="{{cp_current}}" paddingR="{{20}}" bind:change="changea"></tui-rate>
+	</view>
+	<view class="tui-rate-box">
+		<view class="tui-title">客服满意度</view>
+		<tui-rate current="{{kf_current}}" paddingR="{{20}}" bind:change="changeb"></tui-rate>
+	</view>
+	<view class="tui-rate-box">
+		<view class="tui-title">物流满意度</view>
+		<tui-rate current="{{wl_current}}" paddingR="{{20}}" bind:change="changec"></tui-rate>
+	</view>
+
+	<view class="section">
+		<textarea placeholder="产品满足您的期待吗? 说说您的品鉴心得吧!" auto-focus maxlength="600" value="{{tvalue}}" bindinput="textareainput">
+        </textarea>
+	
+		<view class="tui-box-upload">
+	<!-- <image mode='widthFix' src="{{imgSrc==''?'/static/images/nodata.png':imgSrc}}" catchtap="sctp"></image> -->
+
+		<tui-upload serverUrl="{{serverUrl}}" hasVideo="{{true}}" bind:complete="result" bind:remove="remove" bind:videocomplete="videoResult"></tui-upload>
+	</view>
+	</view>
+	
+	<button type="warn" size="16" bindtap="submit"> 确认 </button>
+
+
+
+
+</view>

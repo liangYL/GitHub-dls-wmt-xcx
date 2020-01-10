@@ -1,0 +1,184 @@
+<!--pages/orders/order-detail/order-detail.wxml-->
+<view>
+	<view class="tui-zt-content">
+		<view class="line-con tui-flex ">
+			<view class="dot yellow-color"></view>
+
+			<view class="line tui-col-4 {{sidx > 1 ?'yellow-color':''}}"></view>
+			<view class="dot{{sidx > 1 ?'yellow-color':''}}">
+				<view class="dot {{sidx > 1 ?'yellow-color':''}}">
+				</view>
+			</view>
+
+			<view class="line tui-col-4 {{sidx > 2 ?'yellow-color':''}}"></view>
+			<view class="dot {{sidx > 2 ?'yellow-color':''}}"></view>
+
+			<view class="line tui-col-4 {{sidx >3 ?'yellow-color':''}}"></view>
+			<view class="dot  {{sidx >3 ?'yellow-color':''}}"></view>
+
+		</view>
+		<view class="line-con-t tui-flex ">
+			<view class="dot-t">待付款</view>
+
+			<view class="tui-col-4"></view>
+			<view class="dot-t">待发货</view>
+
+			<view class="tui-col-4"></view>
+			<view class="dot-t">待收货</view>
+
+			<view class=" tui-col-4"></view>
+			<view class="dot-t">已完成</view>
+
+		</view>
+
+	</view>
+
+	<view class="tui-msg-conten">
+		<tui-list-cell wx:if="{{wlObj.position?true:false}}" arrow="{{true}}" tui-cell-class="tui-msg">
+			<view class="tui-msg-box">
+				<image src="/static/images/nodata.png" class="tui-msg-pic" mode="widthFix"></image>
+				<view class="tui-msg-item" data-orderId="{{xqData.doccode}}" catchtap="xcwl">
+					<view class="tui-msg-name wl-title">{{wlObj.position}}</view>
+					<view class="tui-msg-content">{{wlObj.date}}</view>
+				</view>
+			</view>
+
+		</tui-list-cell>
+		<tui-list-cell bind:click="detail" hover="{{false}}" tui-cell-class="tui-msg" last="{{true}}">
+			<view class="tui-msg-box">
+				<image src="/static/images/nodata.png" class="tui-msg-pic" mode="widthFix"></image>
+				<view class="tui-msg-item">
+					<view class="tui-msg-name">{{xqData.custname}}</view>
+					<view class="tui-msg-content">{{xqData.de_addr}}</view>
+				</view>
+			</view>
+
+		</tui-list-cell>
+	</view>
+
+
+
+
+	<view class="tui-order-item ">
+		<tui-list-cell hover="{{false}}" last="true">
+			<view class="tui-goods-title">
+				<view>
+					<tui-icon name="order" color="#999999" size="16" bold="{{true}}"></tui-icon> {{xqData.doccode}}
+				</view>
+				<view class="tui-order-status">{{xqData.orderstatus}}</view>
+			</view>
+		</tui-list-cell>
+		<block wx:for="{{xqData.list}}" wx:for-item="productItem" wx:key="xqkey">
+			<tui-list-cell padding="0" bindclick="detail" hover="{{false}}" last="true">
+				<view class="tui-goods-item">
+					<image src="/static/images/nodata.png" class="tui-goods-img"></image>
+					<view class="tui-goods-center">
+						<view class="tui-goods-name">{{productItem.product_name}}</view>
+						<view class="tui-goods-attr1">{{productItem.activityinfo}}</view>
+						<view class="tui-goods-attr2">{{productItem.is_fl?'返利':'该商品不核算返利'}}</view>
+					</view>
+					<view class="tui-price-right">
+						<view>￥{{productItem.price}}</view>
+						<view>x{{productItem.qty}}</view>
+					</view>
+				</view>
+			</tui-list-cell>
+		</block>
+		<tui-list-cell hover="{{false}}" last="{{true}}">
+			<view class="tui-goods-price">
+				<view class="tui-price-large">订单备注</view>
+				<view class="tui-price-large2">{{}}</view>
+			</view>
+		</tui-list-cell>
+
+	</view>
+
+	<view class="tui-price-content">
+
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">商品金额</view>
+			<view class=" spje_color price-right">¥ {{xqData.amount}}</view>
+		</view>
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">运费</view>
+			<view class="  price-right">+ ¥ {{xqData.transportfee}}</view>
+		</view>
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">满减</view>
+			<view class="  price-right">- ¥ {{xqData.manjianfee}}</view>
+		</view>
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">优惠</view>
+			<view class="  price-right">- ¥ {{xqData.manjianfee}}</view>
+		</view>
+		<!-- <view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">酒豆</view>
+			<view class="  price-right">- ¥60.00</view>
+		</view> -->
+		<view class="tui-price tui-flex  tui-align-between tuizj">
+			<view class=" price-left">商品总价</view>
+			<view class=" spzj_color price-right">¥ {{xqData.amount}}</view>
+		</view>
+	</view>
+	<view class="tui-fk  tui-flex  tui-align-between">
+		<view class=" price-left">实付款</view>
+		<view class=" spzj_color price-right">¥ {{xqData.amount}}</view>
+	</view>
+
+	<view class="tui-price-content p-bottom">
+
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">创建时间</view>
+			<view class="  price-right">{{xqData.docdate}}</view>
+		</view>
+		<!-- <view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">付款时间</view>
+			<view class="  price-right">{{xqData.docdate}}</view>
+		</view> -->
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">完成时间</view>
+			<view class="  price-right">{{xqData.backdate?xqData.backdate:'暂无'}}</view>
+		</view>
+
+	</view>
+
+	<view wx:if="{{options.type=='ljfk'}}" style="height:50px;width:100%"></view>
+
+	<view wx:if="{{options.type=='ljfk'}}" class="tui-pay-content">
+		<view class="tui-pay-btn">
+			<button class="tui-btn tui-btn-mini tui-danger tui-fillet" hover-class="tui-danger-hover" catchtap="qzf">去支付</button>
+		</view>
+	</view>
+
+
+
+
+	<!--底部抽屉-->
+	<view class="mask-screen" bindtap="hideModal" hidden="{{!showModalStatus}}"></view>
+	<view animation="{{animationData}}" class="region-box" hidden="{{!showModalStatus}}">
+		<scroll-view scroll-y="true" class="region-box-scl">
+			<view class="tui-order-tracking">
+				<tui-time-axis>
+					<block wx:for="{{wlData}}" wx:key="index" wx:for-index="idx" wx:for-item="xqitem">
+						<tui-timeaxis-item bgcolor="none">
+							<view slot="node" class="tui-node {{idx==0?'tui-bg-primary':''}}">
+								<tui-icon name="transport" color="#fff" size="14" bold="{{true}}"></tui-icon>
+							</view>
+							<view slot="content">
+								<view class="tui-order-title">
+									<text class="tui-bold">{{}}</text> {{xqitem.position}}
+								</view>
+								<!-- <view class="tui-order-desc">{{xqitem.position}}</view> -->
+								<view class="tui-order-time">{{xqitem.date}}</view>
+							</view>
+						</tui-timeaxis-item>
+					</block>
+				</tui-time-axis>
+				<tui-loadmore class="tui-loadmore-class" visible="{{xqLoadding}}"></tui-loadmore>
+
+			</view>
+			<tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{xqLoadding==false&&xqListData.length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+		</scroll-view>
+	</view>
+
+</view>

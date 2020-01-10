@@ -1,12 +1,16 @@
 {
-  "navigationBarTitleText": "我的库存",
   "usingComponents": {
     "tui-icon": "../../../components/icon/icon",
     "tui-time-axis": "../../../components/time-axis/time-axis",
     "tui-timeaxis-item": "../../../components/timeaxis-item/timeaxis-item",
+    "tui-tabs": "../../../components/tui-tabs/tui-tabs",
+    "tui-button": "../../../components/button/button",
     "tui-loadmore": "../../../components/loadmore/loadmore",
     "tui-nomore": "../../../components/nomore/nomore",
-    "tui-tips": "../../../components/tips/tips"
+    "tui-list-cell": "../../../components/list-cell/list-cell",
+        "tui-tips": "../../../components/tips/tips"
+
   }
   ,"enablePullDownRefresh": true
+
 }

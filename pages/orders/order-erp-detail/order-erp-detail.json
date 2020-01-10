@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tui-list-cell": "../../../components/list-cell/list-cell",
+    "tui-icon": "../../../components/icon/icon",
+    "tui-button": "../../../components/button/button",
+    "tui-time-axis": "../../../components/time-axis/time-axis",
+    "tui-timeaxis-item": "../../../components/timeaxis-item/timeaxis-item"
+  }
+}

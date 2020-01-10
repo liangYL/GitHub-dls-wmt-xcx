@@ -1,0 +1,101 @@
+<view class="tui-container">
+	<tui-tabs tabs="{{tabs}}" isFixed="{{true}}" currentTab="{{currentTab<1?0:currentTab}}" height="100" selectedColor="#E41F19" sliderBgColor="#E41F19" bottom="25rpx" padding="10" bind:change="change"></tui-tabs>
+
+	<view wx:for="{{orderData}}" wx:key="orderKey" wx:for-item="orderitem" wx:for-index="orderIdx" hidden="{{currentTab == orderIdx ? false:true}}" class="tui-order-list">
+
+		<view class="tui-order-item " wx:for="{{orderitem}}" wx:key="listKey" wx:for-item="listItem" data-doccode="{{listItem.doccode}}" data-pid="{{listItem.xcx_pk_id}}" data-orderfrom="{{listItem.orderfrom}}" wx:for-index="listIdx" bindtap="toPageDetails">
+			<tui-list-cell hover="{{false}}" last="true">
+				<view class="tui-goods-title">
+					<view>
+						<tui-icon name="order" color="#999999" size="16" bold="{{true}}"></tui-icon> {{listItem.doccode}}
+					</view>
+					<view class="tui-order-status">{{listItem.orderstatus}}</view>
+				</view>
+			</tui-list-cell>
+			<block wx:for="{{listItem.list}}" wx:for-item="productItem" wx:key="index3">
+				<tui-list-cell padding="0" hover="{{false}}" last="true">
+					<view class="tui-goods-item">
+						<image src="/static/images/nodata.png" class="tui-goods-img"></image>
+						<view class="tui-goods-center">
+							<view class="tui-goods-name">{{productItem.product_name}}</view>
+							<view class="tui-goods-attr1">{{productItem.activityinfo}}</view>
+							<view class="tui-goods-attr2">{{productItem.is_fl?'返利':'该商品不核算返利'}}</view>
+						</view>
+						<view class="tui-price-right">
+							<view>￥{{productItem.price}}</view>
+							<view>x{{productItem.qty}}</view>
+						</view>
+					</view>
+				</tui-list-cell>
+			</block>
+			<tui-list-cell hover="{{false}}" last="{{true}}">
+				<view class="tui-goods-price">
+					<view class="tui-price-large">共{{listItem.sumqty}}件商品 , 合计</view>
+					<view class="tui-price-large">￥</view>
+					<view class="tui-price-large">{{listItem.amount}}</view>
+					<view class="tui-size-24">.00</view>
+				</view>
+			</tui-list-cell>
+
+
+
+			<view class="tui-order-btn" wx:if="{{listItem.orderstatus=='待付款'}}">
+				<!-- <view class="tui-btn-ml">
+					<tui-button type="danger" tui-button-class="tui-button-red" plain="{{true}}" width="140rpx" height="60rpx" size="{{16}}" shape="circle" catchtap="qxdd" data-doccode="{{listItem.doccode}}" data-pid="{{listItem.xcx_pk_id}}" data-orderfrom="{{listItem.orderfrom}}" data-type="qxdd">取消订单</tui-button>
+				</view> -->
+				<view class="tui-btn-ml">
+					<tui-button type="danger" tui-button-class="tui-button-red" plain="{{true}}" width="140rpx" height="60rpx" size="{{16}}" shape="circle" catchtap="ljfk" data-doccode="{{listItem.doccode}}" data-pid="{{listItem.xcx_pk_id}}" data-orderfrom="{{listItem.orderfrom}}" data-type="ljfk">立即付款</tui-button>
+				</view>
+			</view>
+			<view class="tui-order-btn" wx:elif="{{listItem.orderstatus=='待发货'}}">
+				<view class="tui-btn-ml">
+					<tui-button type="gray" tui-button-class="tui-button-gray" plain="{{true}}" width="140rpx" height="60rpx" size="{{16}}" shape="circle" data-orderSn="{{item.doccode}}" catchtap="txfh">提醒发货</tui-button>
+				</view>
+			</view>
+			<view class="tui-order-btn" wx:elif="{{listItem.orderstatus=='待收货'}}">
+				<view class="tui-btn-ml">
+					<tui-button type="gray" tui-button-class="tui-button-gray" plain="{{true}}" width="140rpx" height="60rpx" data-orderId="{{item.doccode}}" size="{{16}}" shape="circle" catchtap="xcwl">查询物流</tui-button>
+				</view>
+			</view>
+
+		</view>
+
+		<tui-loadmore class="tui-loadmore-class" visible="{{loaddings[orderIdx]}}"></tui-loadmore>
+		<tui-nomore class="tui-nomore-class" visible="{{pullUpOns[orderIdx]}}"></tui-nomore>
+		<tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{loaddings[orderIdx]==false&&orderData[orderIdx].length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+
+	</view>
+
+
+
+	<!--底部抽屉-->
+	<view class="mask-screen" bindtap="hideModal" hidden="{{!showModalStatus}}"></view>
+	<view animation="{{animationData}}" class="region-box" hidden="{{!showModalStatus}}">
+		<scroll-view scroll-y="true" class="region-box-scl">
+			<view class="tui-order-tracking">
+				<tui-time-axis>
+					<block wx:for="{{wlData}}" wx:key="index" wx:for-index="idx" wx:for-item="xqitem">
+						<tui-timeaxis-item bgcolor="none">
+							<view slot="node" class="tui-node {{idx==0?'tui-bg-primary':''}}">
+								<tui-icon name="transport" color="#fff" size="14" bold="{{true}}"></tui-icon>
+							</view>
+							<view slot="content">
+								<view class="tui-order-title">
+									<text class="tui-bold">{{}}</text> {{xqitem.position}}
+								</view>
+								<!-- <view class="tui-order-desc">{{xqitem.position}}</view> -->
+								<view class="tui-order-time">{{xqitem.date}}</view>
+							</view>
+						</tui-timeaxis-item>
+					</block>
+				</tui-time-axis>
+				<tui-loadmore class="tui-loadmore-class" visible="{{xqLoadding}}"></tui-loadmore>
+
+			</view>
+			<tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{xqLoadding==false&&xqListData.length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+		</scroll-view>
+	</view>
+
+
+
+</view>

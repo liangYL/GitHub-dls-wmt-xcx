@@ -1,0 +1,116 @@
+<!--pages/orders/order-detail/order-detail.wxml-->
+<view>
+
+	<view class="tui-msg-content">
+		<tui-list-cell bind:click="detail" hover="{{false}}" tui-cell-class="tui-msg" last="{{true}}">
+			<view class="tui-msg-box">
+				<image src="/static/images/nodata.png" class="tui-msg-pic" mode="widthFix"></image>
+				<view class="tui-msg-item">
+					<view class="tui-msg-name">{{xqData.address_item.consignee+" "+xqData.address_item.consignee_phone}}</view>
+					<view class="tui-msg-content">{{xqData.address_item.province_name+xqData.address_item.city_name+xqData.address_item.area_name+xqData.address_item.street_name+xqData.address_item.address}}</view>
+				</view>
+			</view>
+
+		</tui-list-cell>
+	</view>
+
+
+
+
+	<view class="tui-order-item ">
+		<tui-list-cell hover="{{false}}" last="true">
+			<view class="tui-goods-title">
+				<view>
+					<tui-icon name="order" color="#999999" size="16" bold="{{true}}"></tui-icon> {{options.doccode}}
+				</view>
+				<view class="tui-order-status">{{xqData.statement_type_name}}</view>
+			</view>
+		</tui-list-cell>
+		<block wx:for="{{xqData.goods_items}}" wx:for-item="productItem" wx:key="xqkey">
+			<tui-list-cell padding="0" bindclick="detail" hover="{{false}}" last="true">
+				<view class="tui-goods-item">
+					<image src="{{productItem.goods_cover_url}}"></image>
+					<view class="tui-goods-center">
+						<view class="tui-goods-name">{{productItem.goods_name}}</view>
+						<view class="tui-goods-attr1">{{productItem.use_coupon_item.coupon_name}}</view>
+						<view class="tui-goods-attr2">{{productItem.use_group_item.group_name}}</view>
+					</view>
+					<view class="tui-price-right">
+						<view>￥{{productItem.goods_price}}</view>
+						<view>x{{productItem.quantity}}</view>
+					</view>
+				</view>
+			</tui-list-cell>
+		</block>
+		<tui-list-cell hover="{{false}}" last="{{true}}">
+			<view class="tui-goods-price">
+				<view class="tui-price-large">订单备注</view>
+				<view class="tui-price-large2">{{}}</view>
+			</view>
+		</tui-list-cell>
+
+	</view>
+
+	<view class="tui-price-content">
+
+		<view wx:for="{{xqData.amount_items}}" wx:for-item="amountItem" wx:key="amountkey" class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">{{amountItem.amount_name}}</view>
+			<view class=" spje_color price-right">{{amountItem.amount_price_info}}</view>
+		</view>
+		<!-- <view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">运费</view>
+			<view class="  price-right">+ ¥ {{xqData.transportfee}}</view>
+		</view>
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">满减</view>
+			<view class="  price-right">- ¥ {{xqData.manjianfee}}</view>
+		</view>
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">优惠</view>
+			<view class="  price-right">- ¥ {{xqData.manjianfee}}</view>
+		</view> -->
+		<!-- <view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">酒豆</view>
+			<view class="  price-right">- ¥60.00</view>
+		</view> -->
+		<!-- <view class="tui-price tui-flex  tui-align-between tuizj">
+			<view class=" price-left">商品总价</view>
+			<view class=" spzj_color price-right">¥ {{xqData.amount}}</view>
+		</view> -->
+	</view>
+	<view class="tui-fk  tui-flex  tui-align-between">
+		<view class=" price-left">实付款</view>
+		<view class=" spzj_color price-right">¥ {{xqData.total_payable_amount}}</view>
+	</view>
+
+	<view class="tui-price-content p-bottom">
+		<view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">支付方式</view>
+			<view wx:if="{{xqData.pay_mode==101}}" class="price-right">{{'预付定金'}}</view>
+			<view wx:elif="{{xqData.pay_mode==201}}" class="price-right">{{'在线付款'}}</view>
+			<view wx:elif="{{xqData.pay_mode==301}}" class="price-right">{{'货到付款'}}</view>
+
+		</view>
+		<!-- <view class="tui-price tui-flex  tui-align-between">
+			<view class=" price-left">创建时间</view>
+			<view class="  price-right">{{xqData.docdate}}</view>
+		</view> -->
+	</view>
+
+	<view wx:if="{{options.type=='ljfk'}}" style="height:50px;width:100%"></view>
+
+	<view wx:if="{{options.type=='ljfk'}}" class="tui-pay-content">
+		<view class="tui-flex  tui-align-between">
+			<view class="spzj_color price-zj">¥ {{xqData.total_payable_amount}}</view>
+			<view class="tui-pay-btn">
+				<button class="tui-btn tui-btn-mini tui-danger tui-fillet" hover-class="tui-danger-hover" catchtap="qzf">去支付</button>
+			</view>
+		</view>
+
+	</view>
+
+
+
+
+
+</view>

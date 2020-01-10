@@ -1,0 +1,64 @@
+<view class="tui-container">
+	<tui-tabs tabs="{{tabs}}" isFixed="{{true}}" currentTab="{{currentTab<1?0:currentTab}}" height="100" selectedColor="#E41F19" sliderBgColor="#E41F19" sliderWidth="{{tabsWidth}}" itemWidth="50%" padding="10" bind:change="change"></tui-tabs>
+
+	<view wx:for="{{orderData}}" wx:key="orderKey" wx:for-item="orderitem" wx:for-index="orderIdx" hidden="{{currentTab == orderIdx ? false:true}}" class="tui-order-list">
+
+		<view class="tui-order-item " wx:for="{{orderitem}}" wx:key="listKey" wx:for-item="listItem" data-doccode="{{listItem.doccode}}" data-orderfrom="{{listItem.orderfrom}}" wx:for-index="listIdx" bindtap="toPageDetails">
+			<tui-list-cell hover="{{false}}" last="true">
+				<view class="tui-goods-title">
+					<view>
+						<tui-icon name="order" color="#999999" size="16" bold="{{true}}"></tui-icon> {{listItem.doccode}}
+					</view>
+					<view class="tui-order-status">{{listItem.orderstatus}}</view>
+				</view>
+			</tui-list-cell>
+			<block wx:for="{{listItem.list}}" wx:for-item="productItem" wx:key="index3">
+				<tui-list-cell padding="0" bindclick="detail" hover="{{false}}" last="true">
+					<view class="tui-goods-item">
+						<image src="/static/images/nodata.png" class="tui-goods-img"></image>
+						<view class="tui-goods-center">
+							<view class="tui-goods-name">{{productItem.product_name}}</view>
+
+							<view wx:if="{{listItem.orderstatus=='已评价'}}">
+								<tui-rate current="{{productItem.goods_star}}" bind:change="changeb"></tui-rate>
+							</view>
+							<view wx:if="{{listItem.orderstatus=='待评价'}}">
+								<view class="tui-goods-attr1">{{productItem.activityinfo}}</view>
+								<view class="tui-goods-attr2">{{productItem.is_fl?'返利':'该商品不核算返利'}}</view>
+							</view>
+
+
+						</view>
+						<view class="tui-price-right">
+							<view>￥{{productItem.price}}</view>
+							<view>x{{productItem.qty}}</view>
+						</view>
+					</view>
+
+				</tui-list-cell>
+				<view  class="tui-order-rs" wx:if="{{listItem.orderstatus=='已评价'}}">
+					<video wx:if="{{productItem.rs_evaluate.video}}" src="{{productItem.rs_evaluate.video}}"></video>
+					<image wx:for="{{productItem.rs_evaluate.img}}" wx:for-item="imgItem"  wx:key="keyimg" src="{{imgItem}}" data-src="{{productItem.rs_evaluate.img}}" bindtap='clickImg'></image>
+				</view>
+				<view class="tui-order-bz" wx:if="{{listItem.orderstatus=='已评价'}}">
+					{{productItem.evaluate_info}}
+				</view>
+				<view class="tui-order-btn" wx:if="{{listItem.orderstatus=='待评价'}}">
+					<view class="tui-btn-ml">
+						<tui-button type="danger" tui-button-class="tui-button-red" plain="{{true}}" width="140rpx" data-doccode="{{productItem.doccode}}" data-productid="{{productItem.product_id}}" data-productname="{{productItem.product_name}}" height="60rpx" size="{{16}}" shape="circle" catchtap="qpj">去评价</tui-button>
+					</view>
+				</view>
+			</block>
+
+
+		</view>
+
+		<tui-loadmore class="tui-loadmore-class" visible="{{loaddings[orderIdx]}}"></tui-loadmore>
+		<tui-nomore class="tui-nomore-class" visible="{{pullUpOns[orderIdx]}}"></tui-nomore>
+		<tui-tips tui-tips-class="tui-tips" fixed="{{false}}" visible="{{loaddings[orderIdx]==false&&orderData[orderIdx].length==0?true:false}}" imgWidth="{{500}}" imgHeight="{{500}}" imgUrl="/static/images/nodata.png"></tui-tips>
+
+	</view>
+
+
+
+</view>

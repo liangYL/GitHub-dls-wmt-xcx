@@ -1,11 +1,16 @@
-var aes = require('./aes.js');
-import util from './util';
+let aes = require('./aes.js');
+let util = require('./util.js');
+import {
+    MapTOJson,
+    Encrypt,
+    Decrypt
+} from './util';
 const baseUrl = 'https://apitest.chinawmt.com:8001/api/';
 const service = {
     htmlRequestEncryption: function (id, api_safety_code, vs, data) {
+        console.log(data)
         var safety_code = "000000";
         var Url = `${baseUrl}${id}/${vs}`;
-        console.log(Url)
         var apiSafetyCode = api_safety_code;
         var dataArr = new Array();
         for (var keys in data) {
@@ -19,11 +24,11 @@ const service = {
             return a["keys"].localeCompare(b["keys"])
         });
         var result = new Map(dataArr.map(i => [i["keys"], i["name"]]));
-      var dataMessage = safety_code + util.MapTOJson(result) + apiSafetyCode + safety_code;
+        var dataMessage = safety_code + MapTOJson(result) + apiSafetyCode + safety_code;
         var sign = aes.CryptoJS.MD5(dataMessage).toString().toUpperCase();
         var sign16 = sign.substring(0, 16);
         var key = aes.CryptoJS.enc.Utf8.parse(sign16); //十六位十六进制数作为密钥
-      var aesDataMessge = util.Encrypt(dataMessage, key);
+        var aesDataMessge = Encrypt(dataMessage, key);
         return new Promise((resolve, reject) => {
             wx.request({
                 url: Url,
@@ -41,15 +46,20 @@ const service = {
                     if (res.statusCode == 200) {
                         var datas = JSON.parse(res.data);
                         if (datas.replyContent !== null) {
-                          var dec = util.Decrypt(datas.replyContent, key)
+                            var dec = Decrypt(datas.replyContent, key)
                             datas.replyContent = dec
                             resolve(datas)
-                            console.log(datas)
                         } else {
-                            reject(datas)
+                            // reject(datas)
+                            wx.showToast({
+                                title: datas.errorMessage, //提示文字
+                                duration: 2000, //显示时长
+                                icon: "none",
+                                mask: true
+                            })
                         }
                     } else {
-
+                        util.toast("数据请求失败")
                     }
                 },
                 fail: function (res) {
@@ -57,8 +67,38 @@ const service = {
                 }
             })
         })
+    },
+    // 这是共有服务请求封装
+    httpRequestPrivate: function (url, Data) {
+        let Url = url;
+        return new Promise((resolve, reject) => {
+            wx.request({
+                url: Url,
+                data: Data,
+                method: "POST",
+                header: {
+                    'content-type': 'application/json'
+                },
+                success: (res) => {
+                    if(res.data.errorCode == 0) {
+                        let dataJson = JSON.parse(res.data.ReplyContent)
+                        resolve(dataJson)
+                    }else {
+                        reject(res)
+                    }
+                },
+                fail: (res) => {
+                    wx.showToast({
+                        title: res.data.error, //提示文字
+                        duration: 2000, //显示时长
+                        mask: true
+                    })
+                }
+            })
+        })
     }
 }
 module.exports = {
-    httpRequest: service.htmlRequestEncryption
+    httpRequest: service.htmlRequestEncryption,
+    httpRequestPrivate:service.httpRequestPrivate
 };

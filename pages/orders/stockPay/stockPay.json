@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "提货",
   "usingComponents": {
     "tui-cell": "../../../components/list-cell/list-cell"
     ,"tui-numberbox": "../../../components/numberbox/numberbox"

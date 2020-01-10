@@ -12,4 +12,6 @@
 } 
 page{
   font-family: "Microsoft YaHei";
+  background: #fafafa;
+
 }

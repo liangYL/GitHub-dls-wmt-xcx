@@ -1,51 +1,58 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/shops/shop/shop",
-    "pages/shops/goods/goods",
-    "pages/mys/my/my",
-    "pages/logins/login/login",
-    "pages/logins/authorize/authorize",
-    "pages/orders/menu/menu",
-    "pages/orders/myOrder/myOrder",
-    "pages/wealths/profitIncome/profitIncome",
-    "pages/material/material",
-    "pages/other/other",
-    "pages/wealths/profitExpend/profitExpend",
-    "pages/wealths/withdrawal/withdrawal",
-    "pages/orders/stock/stock",
-    "pages/orders/stockPay/stockPay"
-  ],
-  "tabBar": {
-    "color": "#C0C0C0",
-    "selectedColor": "#25CAFC",
-    "backgroundColor": "#FFFFFF",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "主页",
-        "iconPath": "static/images/iocn_order_13.png",
-        "selectedIconPath": "static/images/iocn_order_08.png"
-      },
-      {
-        "pagePath": "pages/other/other",
-        "text": "其他",
-        "iconPath": "static/images/iocn_act_05.png",
-        "selectedIconPath": "static/images/iocn_act_02.png"
-      }
-    ]
-  },
-  "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#5677FC",
-    "navigationBarTitleText": "万茗堂",
-    "navigationBarTextStyle": "white",
-    "backgroundColorTop": "#fafafa",
-    "backgroundColorBottom": "#fafafa"
-  },
-  "sitemapLocation": "sitemap.json",
-  "usingComponents": {
-    "tui-button": "components/button/button"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/shops/shop/shop",
+        "pages/shops/goods/goods",
+        "pages/mys/my/my",
+        "pages/logins/login/login",
+        "pages/logins/authorize/authorize",
+        "pages/orders/menu/menu",
+        "pages/orders/myOrder/myOrder",
+        "pages/wealths/profitIncome/profitIncome",
+        "pages/material/material",
+        "pages/other/other",
+        "pages/wealths/profitExpend/profitExpend",
+        "pages/wealths/withdrawal/withdrawal",
+        "pages/orders/stock/stock",
+        "pages/orders/stockPay/stockPay",
+        "pages/orders/order-manage/order-manage",
+        "components/lyl-scrollView/lyl-scrollView",
+        "pages/orders/order-xcx-detail/order-xcx-detail",
+        "pages/orders/order-erp-detail/order-erp-detail",
+        "pages/orders/order-evaluate/order-evaluate",
+        "pages/orders/order-evaluate-detail/order-evaluate-detail"
+
+    ],
+    "tabBar": {
+        "color": "#C0C0C0",
+        "selectedColor": "#25CAFC",
+        "backgroundColor": "#FFFFFF",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "主页",
+                "iconPath": "static/images/iocn_order_13.png",
+                "selectedIconPath": "static/images/iocn_order_08.png"
+            },
+            {
+                "pagePath": "pages/other/other",
+                "text": "其他",
+                "iconPath": "static/images/iocn_act_05.png",
+                "selectedIconPath": "static/images/iocn_act_02.png"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#5677FC",
+        "navigationBarTitleText": "万茗堂",
+        "navigationBarTextStyle": "white",
+        "backgroundColorTop": "#fafafa",
+        "backgroundColorBottom": "#fafafa"
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "tui-button": "components/button/button"
+    }
 }

@@ -1,0 +1,32 @@
+<view class="tui-container">
+  <view class="tui-upload-box">
+   <view class="tui-image-item" wx:if="{{vurl!=''}}" >
+      <video style="height:100px;width:100px;" src="{{vurl}}" catchtap=""> </video>
+      <view wx:if="{{true}}" class="tui-img-del" catchtap="delVideo" data-index="{{index}}"></view>
+      <view wx:if="{{vstatus!=1}}" class="tui-upload-mask">
+        <view class="tui-upload-loading" wx:if="{{vstatus==2}}"></view>
+        <text class="tui-tips">{{vstatus==2?'上传中...':'上传失败'}}</text>
+        <view class="tui-mask-btn" wx:if="{{vstatus==3}}" catchtap="reUpLoadVideo" data-index="{{index}}" hover-class="tui-hover" hover-stay-time="150">重新上传</view>
+      </view>
+    </view>
+     <view wx:if="{{vurl=='' && hasVideo}}" class="tui-upload-add" bindtap="chooseVideo">
+      <view class="tui-upload-icon tui-icon-plus"></view>
+      <view class="tui-upload-text">添加视频</view>
+    </view>
+    <view class="tui-image-item" wx:for="{{imageList}}" wx:key="{{index}}">
+      <image src="{{item}}" class="tui-item-img" catchtap="previewImage" data-index="{{index}}" mode="aspectFill"></image>
+      <view wx:if="{{!forbidDel}}" class="tui-img-del" catchtap="delImage" data-index="{{index}}"></view>
+      <view wx:if="{{statusArr[index]!=1}}" class="tui-upload-mask">
+        <view class="tui-upload-loading" wx:if="{{statusArr[index]==2}}"></view>
+        <text class="tui-tips">{{statusArr[index]==2?'上传中...':'上传失败'}}</text>
+        <view class="tui-mask-btn" wx:if="{{statusArr[index]==3}}" catchtap="reUpLoad" data-index="{{index}}" hover-class="tui-hover" hover-stay-time="150">重新上传</view>
+      </view>
+    </view>
+    
+    <view wx:if="{{!forbidAdd && imageList.length < limit}}" class="tui-upload-add" bindtap="chooseImage">
+      <view class="tui-upload-icon tui-icon-plus"></view>
+      <view class="tui-upload-text">添加图片</view>
+    </view>
+    
+  </view>
+</view>

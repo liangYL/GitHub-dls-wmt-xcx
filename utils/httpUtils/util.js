@@ -29,25 +29,63 @@ const util = {
         var i = 1;
         m.forEach(function (item, key, mapObj) {
             if (mapObj.size == i) {
-                str += '"' + key + '":"' + item + '"';
+                
+                if(Object.prototype.toString.call(item) == "[object Object]"){
+                    str += '"' + key + '":' + JSON.stringify(item)  ;
+
+                }else{
+                    str += '"' + key + '":"' + item + '"';
+                }
             } else {
-                str += '"' + key + '":"' + item + '",';
+                if(Object.prototype.toString.call(item) == "[object Object]"){
+                    str += '"' + key + '":' + JSON.stringify(item) + ',';
+
+                }else{
+                    str += '"' + key + '":"' + item + '",';
+
+                }
             }
             i++;
         });
         str += '}';
         return str;
     },
+    isNullOrEmpty: function(value) {
+        //是否为空
+        return (value === null || value === '' || value === undefined) ? true : false;
+      },
     trim: function (value) {
         //去空格
         return value.replace(/(^\s*)|(\s*$)/g, "");
-    }
-
+    },
+    isMobile: function (value) {
+        //是否为手机号
+        return /^(?:13\d|14\d|15\d|16\d|17\d|18\d|19\d)\d{5}(\d{3}|\*{3})$/.test(value);
+    },
+    toast: function (text, duration, success) {
+        wx.showToast({
+            title: text,
+            icon: success ? 'success' : 'none',
+            duration: duration || 2000
+        })
+    },
+    toastMessage: function (text) {
+        wx.showToast({
+            title: text,
+            icon:  'none',
+            duration: 2000,
+            mask: true
+        })
+    },
 }
 
 module.exports = {
     Encrypt: util.Encrypt,
     Decrypt: util.Decrypt,
     MapTOJson: util.MapTOJson,
-    trim: util.trim
+    trim: util.trim,
+    isNullOrEmpty:util.isNullOrEmpty,
+    toast: util.toast,
+    toastMessage:util.toastMessage,
+    isMobile: util.isMobile
 }
