@@ -1,0 +1,43 @@
+/* pages/team/partnership.wxss */
+@import '../../../style/thorui.wxss';
+
+
+  
+  .tui-view{
+    background-color: white;
+    font-size: 28rpx;
+    width: 100%;
+    height: 100%;
+  }
+  .tui-view .tui-cell .tui-flex{
+    width: 100%;
+    font-size: 28rpx;
+   
+  }
+  .tui-col-9{
+    padding-left:10rpx;
+    box-sizing: border-box;
+  }
+  
+  .tui-btn-box{
+    margin: 40rpx;
+  }
+  .tui-view textarea{
+      height: 60px;
+      width: 100%;
+      box-sizing: border-box;
+  }
+  .tui-btn-box button:after{
+      border: 0 !important;
+  }
+  .tui-btn-box button{
+    margin-bottom: 20rpx;
+}
+.pickText{
+    color: #8d8d8d;
+    padding-left: 10rpx;
+
+}
+.pickText2{
+    padding-left: 10rpx;
+}

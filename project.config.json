@@ -130,6 +130,13 @@
 					"pathName": "pages/orders/order-evaluate-detail/order-evaluate-detail",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/partnership/partnership",
+					"pathName": "pages/team/partnership/partnership",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

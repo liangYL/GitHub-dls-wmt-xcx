@@ -247,21 +247,12 @@ Page({
      */
     onPullDownRefresh: function () {
         var idx = this.data.currentTab;
-        var list = this.data.orderData;
-        var lod = this.data.loaddings;
-        var ppo = this.data.pullUpOns;
-        var pagei = this.data.pageindexs;
-
-        list[idx] = [];
-        lod[idx] = true;
-        ppo[idx] = false;
-        pagei[idx] = 1;
-
+  
         this.setData({
-            orderData: list,
-            loaddings: lod,
-            pullUpOns: ppo,
-            pageindexs: pagei
+            [`orderData[${idx}]`]: [],
+            [`loaddings[${idx}]`]: true,
+            [`pullUpOns[${idx}]`]: false,
+            [`pageindexs[${idx}]`]: 1
           });
         wx.showNavigationBarLoading(); //在标题栏中显示加载
         this.onHttpOrderList();

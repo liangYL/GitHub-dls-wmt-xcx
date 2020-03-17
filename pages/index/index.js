@@ -10,7 +10,7 @@ Page({
       { img: '/static/images/iocn_01.png',src:'../shops/shop/shop', title: '商城' },
       { img: '/static/images/iocn_02.png', src: '../orders/menu/menu', title: '订单' },
       { img: '/static/images/iocn_03.png', src: '../wealths/menu/menu', title: '财富' },
-      { img: '/static/images/iocn_04.png', src: '', title: '人员' },
+      { img: '/static/images/iocn_04.png', src: '../team/partnership/partnership', title: '人员' },
       { img: '/static/images/iocn_05.png', src: '../material/material', title: '素材' },
       { img: '/static/images/iocn_06.png', src: '../mys/my/my', title: '我的' }],
     imgUrls: [

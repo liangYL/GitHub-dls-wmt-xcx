@@ -1,0 +1,128 @@
+<!--pages/team/partnership.wxml-->
+
+<view class="tui-container">
+
+	<form bindsubmit="formSubmit" bindreset="formReset">
+
+		<tui-view tui-view-class="tui-view">
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">合伙人姓名</view>
+					<view class="tui-col-9">
+						<input placeholder-class="phcolor" class="tui-input" name="name" placeholder="请输入姓名" maxlength="50" type="number" />
+					</view>
+				</view>
+			</tui-list-cell>
+
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+				<view class="tui-flex ">
+					<view class="tui-col-3">合伙人性别</view>
+					<view class="tui-col-6">
+						<radio-group class="radio-group" name="sex">
+							<label class="tui-radio">
+								<radio value="1" color="#E41F19" />男
+							</label>
+							<label class="tui-radio" style="float:right">
+								<radio value="2" color="#E41F19" />女
+							</label>
+						</radio-group>
+					</view>
+
+				</view>
+			</tui-list-cell>
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">客户微信</view>
+					<view class="tui-col-9">
+						<input placeholder-class="phcolor" class="tui-input" name="wechat" placeholder="请输入微信号" maxlength="50" type="number" />
+					</view>
+				</view>
+			</tui-list-cell>
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">合伙人手机</view>
+					<view class="tui-col-9">
+						<input placeholder-class="phcolor" class="tui-input" name="mobile" placeholder="请输入手机号" maxlength="50" type="number" />
+					</view>
+				</view>
+			</tui-list-cell>
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">与自己关系</view>
+					<view class="tui-col-8" bindtap="openActionSheet">
+						<text class="pickText" wx:if="{{relation == ''}}">请选择</text>
+						<text class="pickText2" wx:if="{{relation != ''}}"> {{relation}}</text>
+					</view>
+					<view class="tui-col-1">
+						<tui-icon name="arrowdown" color="#999999" size="32" bold="{{true}}"></tui-icon>
+					</view>
+				</view>
+			</tui-list-cell>
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">客户地址</view>
+					<view class="tui-col-8">
+						<!-- <city-select bindregionChange="onRegionChange"> -->
+						<!-- <text>{{region.length !== 0?'':'请选择'}}<text>{{region[0][select[0]].value}}{{region[1][select[1]].value}}</text></text>
+						</city-select> -->
+						<picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+							<view class="picker">
+								<text class="pickText" wx:if="{{region.length == 0}}">请选择</text>
+								<text wx:if="{{region.length != 0}}"> {{region[0]+region[1]+region[2]}}</text>
+							</view>
+						</picker>
+					</view>
+					<view class="tui-col-1">
+						<tui-icon name="arrowdown" color="#999999" size="32" bold="{{true}}"></tui-icon>
+					</view>
+				</view>
+			</tui-list-cell>
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">客户地址</view>
+					<view class="tui-col-8">
+
+						<picker value="{{value}}" mode="multiSelector" bindchange="picker" bindcolumnchange="columnPicker" range="{{multiArray}}">
+							<text wx:if="{{text}}">{{text}}</text>
+							<block wx:else>
+								<input placeholder-class="tui-phcolor" bindinput="getAddr" value="{{defultAddress.province_name}}{{defultAddress.city_name}}{{defultAddress.area_name}}" class="tui-input" disabled name="city" placeholder="请选择城市" maxlength="50" type="text" />
+							</block>
+						</picker>
+					</view>
+					<view class="tui-col-1">
+						<tui-icon name="arrowdown" color="#999999" size="32" bold="{{true}}"></tui-icon>
+					</view>
+				</view>
+			</tui-list-cell>
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">详细地址</view>
+					<view class="tui-col-9">
+						<textarea placeholder-class="phcolor" class="tui-input" name="detailaddress" placeholder="请输入详细地址" maxlength="100"></textarea>
+					</view>
+				</view>
+			</tui-list-cell>
+			<tui-list-cell tui-cell-class="tui-cell" hover="{{false}}">
+				<view class="tui-flex tui-align-between">
+					<view class="tui-col-3">备注</view>
+					<view class="tui-col-9">
+						<textarea placeholder-class="phcolor" class="tui-input" name="remark" placeholder="请输入备注" maxlength="500"></textarea>
+					</view>
+				</view>
+			</tui-list-cell>
+		</tui-view>
+		<view class="tui-btn-box">
+
+			<button class="tui-btn tui-btn-block tui-danger tui-fillet" hover-class="tui-danger-hover" formType="submit">保存</button>
+			<button class="tui-btn tui-btn-block tui-btn-gray tui-fillet" hover-class="tui-gray-hover" formType="submit">提交</button>
+		</view>
+
+
+	</form>
+	<tui-actionsheet show="{{showActionSheet}}" tips="{{'请选择关系'}}" item-list="{{itemList}}" mask-closable="{{true}}" color="{{'#9a9a9a'}}" size="{{30}}" is-cancel="{{true}}" bind:click="itemClick" bind:cancel="closeActionSheet"></tui-actionsheet>
+</view>

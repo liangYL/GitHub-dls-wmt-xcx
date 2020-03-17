@@ -21,8 +21,8 @@
         "pages/orders/order-xcx-detail/order-xcx-detail",
         "pages/orders/order-erp-detail/order-erp-detail",
         "pages/orders/order-evaluate/order-evaluate",
-        "pages/orders/order-evaluate-detail/order-evaluate-detail"
-
+        "pages/orders/order-evaluate-detail/order-evaluate-detail",
+        "pages/team/partnership/partnership"
     ],
     "tabBar": {
         "color": "#C0C0C0",
